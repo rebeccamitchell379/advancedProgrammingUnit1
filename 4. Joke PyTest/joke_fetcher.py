@@ -12,8 +12,9 @@ def get_random_joke():
 
         # Modify the joke if it has a question mark
         if '?' in joke:
-            parts = joke.split('?')  # Split the joke where the question mark is
-            return f"{parts[0]}?\n{parts[1]}"  # Print with a newline
+            parts = joke.split('?', 1)  # Split only at the first question mark
+            # Ensure proper spacing after newline
+            return f"{parts[0]}?\n{parts[1].lstrip()}"
         else:
             return joke
 
